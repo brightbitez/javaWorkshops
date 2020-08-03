@@ -44,4 +44,31 @@ public class CircularBufferTest {
         cb.writeData("A");
         assertTrue(cb.isFull());
     }
+    @Test
+    public void writing_11_times_should_overwrite_first_string(){
+        CircularBuffer cb = new CircularBuffer(10);
+        cb.writeData("1");
+        cb.writeData("2");
+        cb.writeData("3");
+        cb.writeData("4");
+        cb.writeData("5");
+        cb.writeData("6");
+        cb.writeData("7");
+        cb.writeData("8");
+        cb.writeData("9");
+        cb.writeData("10");
+        assertEquals("1",cb.readData());
+        cb.readData();
+        cb.readData();
+        cb.readData();
+        cb.readData();
+        cb.readData();
+        cb.readData();
+        cb.readData();
+        cb.readData();
+        cb.writeData("11");
+        cb.readData();
+        assertEquals("11",cb.readData());
+
+    }
 }
