@@ -36,16 +36,9 @@ public class CircularBufferTest {
     @Test
     public void writing_10_times_should_make_buffer_full() {
         CircularBuffer cb = new CircularBuffer(10);
-        cb.writeData("A");
-        cb.writeData("A");
-        cb.writeData("A");
-        cb.writeData("A");
-        cb.writeData("A");
-        cb.writeData("A");
-        cb.writeData("A");
-        cb.writeData("A");
-        cb.writeData("A");
-        cb.writeData("A");
+        for(int i = 0;i<10;i++){
+            cb.writeData(Integer.toString(i));
+        }
         assertTrue(cb.isFull());
     }
 
