@@ -1,5 +1,5 @@
 public class CircularBuffer {
-    private int size = 0;
+    private int size;
     private String buffer[] = new String[10];
     private int readPointer = 0;
     private int writePointer = 0;
@@ -16,7 +16,10 @@ public class CircularBuffer {
 
     public void writeData(String s) {
         buffer[writePointer] = s;
-        if(writePointer ==size){writePointer=0;}
+        if(writePointer ==size-1){
+            writePointer=0;
+            this.fullStatus = true;
+        }
         writePointer++;
     }
 
