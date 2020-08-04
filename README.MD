@@ -24,3 +24,8 @@ Circular buffer
      Conditions: check if writing strings to a buffer 10 times will make buffer full
 * TC06 => writing11TimesShouldOverwriteFirstString
      Conditions: writing to a buffer 11 times should overwrite first wrote string with the latest string
+
+TennisGame Refactor
+### Problems
+1. player 1 and player 2 have repetitive score return as string
+ 
