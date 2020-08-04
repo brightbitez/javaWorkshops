@@ -24,17 +24,17 @@ public class TennisGame2 {
         String player2Result = "";
         String score = "";
 
-        if (player1Point == player2Point && player1Point < 4) {
+        boolean คะแนนเท่ากันแต่ยังไม่ถึงขั้นDuce = player1Point == player2Point && player1Point < 3;
+        if (คะแนนเท่ากันแต่ยังไม่ถึงขั้นDuce) {
 
             score = generatePlayerScore(player1Point);
             score += "-All";
 
         }
 
-        if (player1Point == player2Point && player1Point >= 3)
-
+        boolean deuce = player1Point == player2Point && player1Point >= 3;
+        if (deuce)
             score = "Deuce";
-
 
         if (player1Point > 0 && player2Point == 0) {
             player1Result = generatePlayerScore(player1Point);
@@ -79,27 +79,27 @@ public class TennisGame2 {
 
         if (player1Point > player2Point && player2Point >= 3) {
 
-            score = "Advantage player1";
+            score = "Advantage " + player1Name;
 
         }
 
 
         if (player2Point > player1Point && player1Point >= 3) {
 
-            score = "Advantage player2";
+            score = "Advantage " + player2Name;
 
         }
 
 
         if (player1Point >= 4 && player2Point >= 0 && (player1Point - player2Point) >= 2) {
 
-            score = "Win for player1";
+            score = "Win for " + player1Name;
 
         }
 
         if (player2Point >= 4 && player1Point >= 0 && (player2Point - player1Point) >= 2) {
 
-            score = "Win for player2";
+            score = "Win for " + player2Name;
 
         }
 
