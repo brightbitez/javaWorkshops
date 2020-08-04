@@ -24,12 +24,10 @@ public class TennisGame2 {
         String player2Result = "";
         String score = "";
 
-        boolean คะแนนเท่ากันแต่ยังไม่ถึงขั้นDuce = player1Point == player2Point && player1Point < 3;
-        if (คะแนนเท่ากันแต่ยังไม่ถึงขั้นDuce) {
-
+        boolean equalScoreButNotDuce = player1Point == player2Point && player1Point < 3;
+        if (equalScoreButNotDuce) {
             score = generatePlayerScore(player1Point);
             score += "-All";
-
         }
 
         boolean deuce = player1Point == player2Point && player1Point >= 3;
@@ -37,70 +35,39 @@ public class TennisGame2 {
             score = "Deuce";
 
         if (player1Point > 0 && player2Point == 0) {
-            player1Result = generatePlayerScore(player1Point);
-            player2Result = "Love";
-
-            score = player1Result + "-" + player2Result;
-
+            score = generatePlayerScore(player1Point) + "-Love";
         }
 
         if (player2Point > 0 && player1Point == 0) {
-
-            player2Result = generatePlayerScore(player2Point);
-
-
-            player1Result = "Love";
-
-            score = player1Result + "-" + player2Result;
-
+            score = "Love-" + generatePlayerScore(player2Point);
         }
 
 
         if (player1Point > player2Point && player1Point < 4) {
-
-            player1Result = generatePlayerScore(player1Point);
-
-            player2Result = generatePlayerScore(player2Point);
-
-            score = player1Result + "-" + player2Result;
-
+            score = generatePlayerScore(player1Point) + "-" + generatePlayerScore(player2Point);
         }
 
         if (player2Point > player1Point && player2Point < 4) {
-
-            player1Result = generatePlayerScore(player1Point);
-
-            player2Result = generatePlayerScore(player2Point);
-
-            score = player1Result + "-" + player2Result;
-
+            score = generatePlayerScore(player1Point) + "-" + generatePlayerScore(player2Point);
         }
 
 
         if (player1Point > player2Point && player2Point >= 3) {
-
             score = "Advantage " + player1Name;
-
         }
 
 
         if (player2Point > player1Point && player1Point >= 3) {
-
             score = "Advantage " + player2Name;
-
         }
 
 
         if (player1Point >= 4 && player2Point >= 0 && (player1Point - player2Point) >= 2) {
-
             score = "Win for " + player1Name;
-
         }
 
         if (player2Point >= 4 && player1Point >= 0 && (player2Point - player1Point) >= 2) {
-
             score = "Win for " + player2Name;
-
         }
 
         return score;
