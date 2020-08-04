@@ -3,15 +3,20 @@ public class CircularBuffer {
     private String buffer[] = new String[10];
     private int readPointer = 0;
     private int writePointer = 0;
-    private boolean emptyStatus = true;
+
     private boolean fullStatus = false;
+
+    public CircularBuffer(){
+        this(10);
+    }
+
 
     public CircularBuffer(int i) {
         this.size = i;
     }
 
     public boolean isEmpty() {
-        return emptyStatus;
+        return readPointer == writePointer;
     }
 
     public void writeData(String s) {
